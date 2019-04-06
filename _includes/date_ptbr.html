@@ -1,0 +1,17 @@
+{{ include.date | date: "%d" }} de 
+{% assign m = include.date | date: "%-m" %}
+{% case m %}
+  {% when '1' %}janeiro
+  {% when '2' %}fevereiro
+  {% when '3' %}mar&ccedil;o
+  {% when '4' %}abril
+  {% when '5' %}maio
+  {% when '6' %}junho
+  {% when '7' %}julho
+  {% when '8' %}agosto
+  {% when '9' %}septembro
+  {% when '10' %}outubro
+  {% when '11' %}novembro
+  {% when '12' %}dezembro
+{% endcase %}
+de {{ include.date | date: "%Y" }}

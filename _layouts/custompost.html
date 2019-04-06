@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/posts.css' | relative_url }}">
+  <script type="text/javascript" src="/assets/js/post.js"></script>
+</head>
+<body>
+  <h1 class="post-title p-name" itemprop="name headline">
+	{{ page.title }}
+  </h1>
+
+  {% if page.show_desc %}
+  <h4 class="post-desc">{{ page.desc }}</h4>
+  {% endif %}
+
+  <hr>
+  <p class="post-meta">
+    <time class="dt-published" datetime="{{ page.date }} " itemprop="datePublished">
+        {% include date_iso8601.html date=page.date %}
+    </time>
+    <span>
+		({% include date_ptbr.html date=page.date %})
+    </span>
+  </p>
+{{ content }}
+  </body>
+</html>

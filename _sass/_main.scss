@@ -1,0 +1,37 @@
+.site-footer {
+	padding-top: 10px;
+	padding-bottom: 0;
+}
+
+.social-media-list a:hover img, .social-media-list a:hover svg {
+	transform: scale(1.4);
+}
+
+.social-media-list a:hover:after{
+	content: attr(data-sitename);
+}
+
+.footer-col-1 {
+	width: 25%;
+}
+.footer-col-2 {
+	width: 35%;
+}
+.footer-col-3 {
+	width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+	.footer-col-2, .footer-col-3 {
+		width: 90%;
+	}
+}
+
+:target {
+  animation: highlight 3s ease;   
+}
+
+@keyframes highlight {
+  0% { background-color: yellow; }
+  100% { background-color: white; }
+}

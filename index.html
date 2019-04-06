@@ -1,0 +1,49 @@
+---
+layout: default
+---
+{% if site.posts.size == 1 %}
+  <script type="text/javascript">
+    window.location = "{{ site.posts[0].url }}";
+  </script>
+{% else %}
+  <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+  	<li>
+  		<h3 style="margin-bottom: 0">
+  		  <a class="post-link" href="{{ post.url }}" title="{{ post.title }}">
+  		    {{ post.title }}
+  		  </a>
+  		</h3>
+  		<span class="post-meta">{% include date_iso8601.html date=post.date %} <span>({% include date_ptbr.html date=post.date %})</span></span>
+  		<div style="margin-top: 10px">
+  			{{ post.desc }}
+  			<span><a style="font-size: 0.8em" href="{{ post.url }}" title="{{ post.title }}">continuar lendo</a></span>
+  		</div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">
+        &lt;
+      </a>
+    {% else %}
+      <span class="previous">&lt;</span>
+    {% endif %}
+
+    <span class="page_number ">
+      Página: {{ paginator.page }} de {{ paginator.total_pages }}
+    </span>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">&gt;</a>
+    {% else %}
+      <span class="next ">&gt;</span>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endif %}

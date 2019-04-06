@@ -1,0 +1,46 @@
+---
+---
+@import "main";
+
+.footnote {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.footnotes{
+	border-top: 1px solid gray;
+	font-size: 0.8em;
+}
+
+.footnotes ol {
+	margin-top: 10px;
+}
+
+.post-desc {
+    font-size: 14px;
+	font-style: italic;
+	width: 95%;
+}
+
+.dt-published {
+	font-size: 0.9em;
+}
+
+.post-meta span {
+	font-size: 0.8em;
+}
+
+hr {
+	width: 98%;
+}
+
+h2 a:hover:after, h3 a:hover:after  {
+	content: " #";
+}
+
+h2.subtitulo {
+	font-size: 28px;
+}
+h3.subtitulo {
+	font-size: 23px;
+}

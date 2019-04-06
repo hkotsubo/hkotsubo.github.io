@@ -1,0 +1,12 @@
+- link: https://github.com/hkotsubo
+  icon_type: svg
+  icon: /assets/minima-social-icons.svg#github
+  margin-left: 0;
+  site: github
+
+- link: https://pt.stackoverflow.com/users/112052/hkotsubo
+  icon_type: png
+  icon: /assets/img/so-icon.png
+  width: 26px
+  margin-left: -5px;
+  site: stackoverflow
