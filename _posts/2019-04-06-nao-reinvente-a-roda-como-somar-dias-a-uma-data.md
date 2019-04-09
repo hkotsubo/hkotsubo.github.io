@@ -39,9 +39,9 @@ Muitas linguagens - se não todas - possuem uma ou mais APIs de data que já cui
 Se você estiver usando o Java >= 8, use a [API `java.time`](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html). Para representar uma data (**somente** o dia, mês e ano), você pode usar a classe [`java.time.LocalDate`](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html):
 
 ```java
-// 3 de abril de 2017
+// 3 de abril de 2019
 LocalDate data = LocalDate.of(2019, 4, 3); // ou LocalDate.now() para a data atual
-// somar 1 dia
+// somar 1 dia = 4 de abril de 2019
 data = data.plusDays(1);
 ```
 
@@ -54,12 +54,12 @@ Se você estiver usando Java 6 e 7, pode usar o [Threeten Backport](https://www.
 Obviamente, você também pode usar a API legada ([`java.util.Date`](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) e [`java.util.Calendar`](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html)):
 
 ```java
-// 3 de abril de 2017
+// 3 de abril de 2019
 Calendar cal = Calendar.getInstance();
 cal.set(2019, Calendar.APRIL, 3);
 // somar 1 dia
 cal.add(Calendar.DAY_OF_MONTH, 1);
-// obter o java.util.Date
+// obter o java.util.Date -> 4 de abril de 2019
 Date date = cal.getTime();
 ```
 
@@ -91,7 +91,7 @@ Em Python você pode usar o [módulo `datetime`](https://docs.python.org/3/libra
 from datetime import date
 # 3 de abril de 2019
 d = date(2019, 4, 3)
-# somar 1 dia
+# somar 1 dia = 4 de abril de 2019
 d = d + timedelta(days = 1)
 ```
 
@@ -108,7 +108,7 @@ Em PHP você pode usar a classe [`DateTime`](https://www.php.net/manual/pt_BR/cl
 $d = new DateTime();
 // muda para 3 de abril de 2019
 $d->setDate(2019, 4, 3);
-// somar 1 dia
+// somar 1 dia = 4 de abril de 2019
 $d->add(new DateInterval("P1D"));
 ```
 
@@ -131,7 +131,7 @@ Em JavaScript você pode usar [`Date`](https://developer.mozilla.org/en-US/docs/
 ```javascript
 // 3 de abril de 2019
 let d = new Date(2019, 3, 3); // ou new Date() para a data atual
-// somar 1 dia
+// somar 1 dia = 4 de abril de 2019
 d.setDate(d.getDate() + 1);
 ```
 
@@ -144,7 +144,7 @@ Outra alternativa é usar o [Moment.js](https://momentjs.com). Muitos podem acha
 ```javascript
 // 3 de abril de 2019
 let d = moment([2019, 3, 3]); // ou moment() para a data atual
-// somar 1 dia
+// somar 1 dia = 4 a de abril de 2019
 d.add(1, 'day');
 ```
 
