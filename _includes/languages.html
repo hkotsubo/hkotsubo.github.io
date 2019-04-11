@@ -1,0 +1,15 @@
+{% assign langs = include.languages | split: ',' %}
+
+<ul>
+{% for language in langs %}
+  {% if language == "net" %}
+<li><a href="{{ post.url }}#{{ language }}">.NET</a></li>
+  {% elsif language == "php" %}
+<li><a href="{{ post.url }}#{{ language }}">PHP</a></li>
+  {% elsif language == "javascript" %}
+<li><a href="{{ post.url }}#{{ language }}">JavaScript</a></li>
+  {% else %}
+<li><a href="{{ post.url }}#{{ language }}">{{ language | capitalize }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>

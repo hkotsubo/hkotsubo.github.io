@@ -51,7 +51,9 @@ Somar 1 ano a uma data é parecido. Na maioria dos casos não haverá problema, 
 
 Pessoalmente, eu prefiro o "ajuste semântico", pois me parece mais "óbvio" e "natural" (entre aspas porque nada é trivial na aritmética de datas): somar 1 mês a uma data deveria resultar em uma data no mês seguinte, e somar 1 ano deveria resultar no mesmo mês do ano seguinte, mesmo que o preço a se pagar sejam as situações estranhas citadas anteriormente.
 
-Apesar de muitas linguagens seguirem por este caminho, nem todas fazem essas operações desta maneira. Vamos ver alguns exemplos:
+Apesar de muitas linguagens seguirem por este caminho, nem todas fazem essas operações desta maneira. Vamos ver alguns exemplos abaixo. Se quiser, pode usar os links abaixo para pular direto para a linguagem de sua preferência:
+
+{% include languages.html languages="java,net,python,php,javascript" %}
 
 ### Java
 
@@ -125,7 +127,7 @@ Como podemos ver, também são feitos os devidos ajustes semânticos nos resulta
 
 Se quiser, também pode usar um [`datetime`](https://docs.python.org/3/library/datetime.html#datetime-objects), a diferença é que este também possui o horário. E se você criá-lo com `d = datetime(2016, 1, 31)`, o horário é automaticamente setado para meia-noite.
 
-# PHP
+### PHP
 
 Em PHP você pode usar a classe [`DateTime`](https://www.php.net/manual/pt_BR/class.datetime.php) para criar a data, e em seguida usar o método [`add`](https://www.php.net/manual/pt_BR/datetime.add.php), passando como parâmetro um [`DateInterval`](https://www.php.net/manual/pt_BR/dateinterval.construct.php). Só que, diferente de Java, .NET e Python, no PHP não é feito o ajuste semântico. Então somar 1 mês a uma data em janeiro pode resultar em uma data em março, e somar 1 ano a uma data em fevereiro também pode resultar em uma data em março:
 

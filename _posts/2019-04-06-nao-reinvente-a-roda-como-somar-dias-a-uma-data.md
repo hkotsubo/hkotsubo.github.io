@@ -32,7 +32,9 @@ Enfim, o que parecia simples ("é só somar 1 no dia"), se torna mais complicado
 ---
 ## Use uma API de datas
 
-Muitas linguagens - se não todas - possuem uma ou mais APIs de data que já cuidam de todos esses detalhes para você. Se a linguagem não possui mecanismos nativos - ou se estes não são muito bons - geralmente já existe uma biblioteca externa que faz isso. Pesquise e veja se a sua linguagem favorita possui tal recurso. Abaixo tem exemplos em algumas das linguagens que conheço (com uma ênfase maior em Java, pois é a API que tenho mais familiaridade):
+Muitas linguagens - se não todas - possuem uma ou mais APIs de data que já cuidam de todos esses detalhes para você. Se a linguagem não possui mecanismos nativos - ou se estes não são muito bons - geralmente já existe uma biblioteca externa que faz isso. Pesquise e veja se a sua linguagem favorita possui tal recurso. Abaixo tem exemplos em algumas das linguagens que conheço (com uma ênfase maior em Java, pois é a API que tenho mais familiaridade). Se quiser, pode usar os links abaixo para ir direto para a linguagem de sua preferência:
+
+{% include languages.html languages="java,net,python,php,javascript" %}
 
 ### Java
 
