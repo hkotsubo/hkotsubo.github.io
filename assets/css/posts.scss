@@ -26,11 +26,21 @@
 	font-size: 0.9em;
 }
 
-.post-meta span {
+.post-meta span:not(.tag) {
 	font-size: 0.8em;
 }
 
-hr {
+.post-meta span.tag {
+	font-size: 1em;
+	padding-left: 10px;
+}
+
+hr:not(.post-division) {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+hr.post-division {
 	width: 98%;
 }
 
@@ -41,6 +51,7 @@ h2 a:hover:after, h3 a:hover:after  {
 h2.subtitulo {
 	font-size: 28px;
 }
+
 h3.subtitulo {
 	font-size: 23px;
 }

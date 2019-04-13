@@ -18,7 +18,7 @@ layout: default
   <h4 class="post-desc">{{ page.desc }}</h4>
   {% endif %}
 
-  <hr>
+  <hr class="post-division">
   <p class="post-meta">
     <time class="dt-published" datetime="{{ page.date }} " itemprop="datePublished">
         {% include date_iso8601.html date=page.date %}
@@ -26,6 +26,12 @@ layout: default
     <span>
 		({% include date_ptbr.html date=page.date %})
     </span>
+    {% assign sortedCategories = page.categories | sort %}
+    {% for category in sortedCategories %}
+        <span class="tag">
+            <a href="/tag/{{ category }}" target="_blank">#{{ category }}</a>
+        </span>
+    {% endfor %}
   </p>
 {{ content }}
   </body>
