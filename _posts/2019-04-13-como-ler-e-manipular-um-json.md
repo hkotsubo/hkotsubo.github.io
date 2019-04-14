@@ -2,9 +2,10 @@
 layout: custompost
 title: "Como ler e manipular um JSON"
 date: 2019-04-13 15:07:00 -0300
-desc: Aprenda de uma vez por todas a mexer com esse tal de JSON.
+description: Aprenda de uma vez por todas a mexer com esse tal de JSON.
 show_desc: true
 categories: json
+comments: true
 ---
 
 JSON significa "JavaScript Object Notation" (Notação de Objetos JavaScript). Apesar de ter "JavaScript" no nome, ele pode ser usado em outras linguagens, pois o JSON é na verdade um [**formato** para representar dados](http://json.org/). A sua sintaxe foi inspirada no JavaScript - daí o nome - mas hoje em dia várias linguagens possuem algum suporte para ele, seja nativo ou via bibliotecas.

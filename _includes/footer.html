@@ -2,7 +2,10 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
-    <p class="footer-heading"><a href="{{ site.url }}">{{ site.title | escape }}</a></p>
+    <p class="footer-heading">
+      <a href="{{ site.url }}">{{ site.title | escape }}</a>
+      <span class="rss-link"><a href="{{ site.url }}/feed.xml" target="_blank"><img src="{{ site.url }}/assets/img/rss-icon.png"></span>
+    </p>
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">

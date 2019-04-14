@@ -3,8 +3,9 @@ layout: custompost
 title: "Posso usar expressões regulares (regex) para validar datas?"
 date: 2019-04-05 21:50:00 -0300
 categories: data regex
-desc: Usar regex para validar datas é uma ideia que muitos têm e que parece simples. Mas datas nunca são simples...
+description: Usar regex para validar datas é uma ideia que muitos têm e que parece simples. Mas datas nunca são simples...
 show_desc: true
+comments: true
 ---
 
 Primeiro, alguns _disclaimers_:

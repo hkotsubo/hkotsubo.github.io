@@ -3,8 +3,9 @@ layout: custompost
 title: "Não reivente a roda II: como somar meses e anos a uma data"
 date: 2019-04-09 20:35:00 -0300
 categories: data aritmética
-desc: Fácil, é só somar 30 (ou 365) dias, não é? Não, não é tão simples assim...
+description: Fácil, é só somar 30 (ou 365) dias, não é? Não, não é tão simples assim...
 show_desc: true
+comments: true
 ---
 
 Na [parte 1]({{ site.baseurl }}{% post_url 2019-04-06-nao-reinvente-a-roda-como-somar-dias-a-uma-data %}){: class="new-window" } já vimos como somar dias a uma data, e como isso não se resume a "somar 1 no dia". Com meses e anos é a mesma coisa, não é só "somar 1 no mês (ou no ano)" e pronto.

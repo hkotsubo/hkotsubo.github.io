@@ -1,10 +1,12 @@
 ---
 layout: default
+comments: true
 ---
 <!doctype html>
 <html lang="pt">
 <head>
   <meta charset="utf-8">
+  {{ seo }}
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/posts.css' | relative_url }}">
   <script type="text/javascript" src="/assets/js/post.js"></script>
@@ -15,7 +17,7 @@ layout: default
   </h1>
 
   {% if page.show_desc %}
-  <h4 class="post-desc">{{ page.desc }}</h4>
+  <h4 class="post-desc">{{ page.description }}</h4>
   {% endif %}
 
   <hr class="post-division">
@@ -34,5 +36,9 @@ layout: default
     {% endfor %}
   </p>
 {{ content }}
+
+{% if page.comments %}
+  {% include disqus.html %}
+{% endif %}
   </body>
 </html>
