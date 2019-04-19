@@ -40,5 +40,9 @@ comments: true
 {% if page.comments %}
   {% include disqus.html %}
 {% endif %}
+
+{% if site.url contains 'hkotsubo.github.io' %}
+  {% include analytics.html %}
+{% endif %}
   </body>
 </html>
