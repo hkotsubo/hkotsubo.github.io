@@ -54,6 +54,7 @@ Um detalhe é que as classes do `java.time` são imutáveis, então métodos com
 
 Se você estiver usando Java 6 e 7, pode usar o [Threeten Backport](https://www.threeten.org/threetenbp/), um *backport* do `java.time`. Ele basicamente possui as mesmas classes e métodos do `java.time`, a diferença é que o nome do pacote é `org.threeten.bp`. Ou seja, com exceção dos `import`'s, o código ficará igual ao do exemplo acima.
 
+---
 Obviamente, você também pode usar a API legada ([`java.util.Date`](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) e [`java.util.Calendar`](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html)):
 
 ```java
@@ -68,7 +69,7 @@ Date date = cal.getTime();
 
 Eu usei a constante `Calendar.APRIL` para o mês, o que deixa o código um pouco menos confuso, já que nesta API os meses são indexados em zero: janeiro é zero, fevereiro é 1, etc. Isso quer dizer que [o valor de `Calendar.APRIL` é 3](https://docs.oracle.com/javase/8/docs/api/constant-values.html#java.util.Calendar.APRIL). Sempre que vou usar os valores numéricos dos meses com `Calendar`, é comum esquecer de subtrair 1 do mês, então não é raro eu fazer isso:
 
-```
+```java
 // tentativa - ERRADA - de setar a data para 3 de abril de 2019 (o mês deve ser 3 e não 4)
 cal.set(2019, 4, 3);
 ```
