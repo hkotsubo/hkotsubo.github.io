@@ -230,7 +230,7 @@ Para saber se o _offset_ está presente, eu vejo se o array de *matches* tem 3 p
 
 Por fim, em JavaScript, a ideia é a mesma: usar uma regex para extrair o timestamp e offset, e criar a data:
 
-```
+```javascript
 let regex = /Date\((\d+)([-+]\d{4})?\)/;
 let match = regex.exec('/Date(1555375534143-0300)/').slice(1, 3);
 let data = new Date(parseInt(match[0]));
@@ -242,7 +242,7 @@ Um detalhe é que o [`Date` do JavaScript](https://developer.mozilla.org/en-US/d
 
 Caso queira a data no offset que está na string, uma alternativa é usar a biblioteca [Moment.js](https://momentjs.com):
 
-```
+```javascript
 let regex = /Date\((\d+)([-+]\d{4})?\)/;
 let match = regex.exec('/Date(1555375534143-0300)/').slice(1, 3);
 let offset = match[1] || '+0000';
