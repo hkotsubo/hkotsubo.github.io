@@ -48,6 +48,8 @@ O importante é não confundir os conceitos e não usar um quando na verdade se 
 
 Vamos ver então como seria uma solução para este problema. Lembrando que **os códigos abaixo focam neste caso específico**, em que temos apenas o horário (horas e minutos). Se tivesse que calcular considerando os dias, meses e/ou anos, iria precisar de modificações e adaptações para cada caso. Mas o importante é ter em mente a ideia principal: nunca confundir datas/horas com durações, e nunca tratar um como se fosse o outro.
 
+Abaixo tem soluções em algumas linguagens (você pode usar os links abaixo para ir direto para uma delas):
+
 {% include languages.html languages="java,net,python,php,javascript" %}
 
 ### Java
