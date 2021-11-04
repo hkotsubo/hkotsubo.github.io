@@ -167,11 +167,14 @@ O valor do timestamp deve estar em segundos, mas o método `fromtimestamp` aceit
 
 O detalhe é que por *default* é usado o timezone do sistema para converter o timestamp para uma data e hora. No meu caso, o timezone da minha máquina é `America/Sao_Paulo`, mas [rodando esse mesmo código no Ideone.com](https://ideone.com/y7bWxp), o resultado foi `2019-04-26 23:53:54.483000` (pois o timezone do servidor deles é UTC).
 
-Ou seja, dependendo da configuração do ambiente no qual o código está rodando, você pode obter uma data e hora diferentes. Para não depender desta configuração e usar um timezone específico, uma alternativa é usar o [módulo `pytz` (disponível no PyPI)](https://pypi.org/project/pytz/):
+Ou seja, dependendo da configuração do ambiente no qual o código está rodando, você pode obter uma data e hora diferentes. Para não depender desta configuração, você precisa usar um timezone específico.
+
+Até o Python 3.8 uma alternativa é usar o [módulo `pytz` (disponível no PyPI)](https://pypi.org/project/pytz/):
 
 ```python
+# Até Python 3.8
+from pytz import timezone # pip install pytz
 from datetime import datetime
-from pytz import timezone
 
 # obter a data e hora em um timezone específico
 d = datetime.fromtimestamp(1556322834.483199999, tz=timezone('America/Sao_Paulo'))
@@ -182,9 +185,25 @@ d = timezone('America/Sao_Paulo').localize(datetime(2019, 4, 26, 10, 30, 0, 0))
 print(d.timestamp()) # 1556285400.0
 ```
 
+E a partir do Python 3.9 você pode usar o [módulo nativo `zoneinfo`](https://docs.python.org/3/library/zoneinfo.html):
+
+```python
+# A partir do Python 3.9, não precisa mais do pytz
+from zoneinfo import ZoneInfo
+from datetime import datetime
+
+# obter a data e hora em um timezone específico
+d = datetime.fromtimestamp(1556322834.483199999, tz=ZoneInfo('America/Sao_Paulo'))
+print(d)  # 2019-04-26 20:53:54.483200-03:00
+
+# obter o timestamp a partir de uma data/hora e timezone
+d = datetime(2019, 4, 26, 10, 30, 0, 0, tzinfo=ZoneInfo('America/Sao_Paulo'))
+print(d.timestamp()) # 1556285400.0
+```
+
 Repare que agora, ao imprimir o `datetime`, também é mostrado o offset `-03:00` (que é a diferença em relação a UTC, que o timezone `America/Sao_Paulo` usa naquele instante específico). No código acima também há um exemplo para converter uma data e hora específicas em um timestamp (lembrando que o timezone utilizado faz com que o valor do timestamp seja diferente, já que a mesma data e hora acontece em instantes diferentes em cada parte do mundo). E se você usar apenas o construtor de `datetime` (sem usar nenhum timezone), o retorno de `timestamp()` usará o timezone do ambiente no qual o código está rodando (e portanto pode variar).
 
-Usar um timezone é importante para que o código não fique dependente da configuração de timezone do ambiente no qual o código roda - a menos que este seja o comportamento desejado, claro. Mas se quiser que o timestamp corresponda a uma data e hora em um timezone específico, é melhor usar o `pytz`. As informações de timezones mudam o tempo todo (há épocas em que há horário de verão e o offset muda, [entre outros detalhes explicados neste link](https://pt.stackoverflow.com/a/349822/112052)), e tentar manter isso manualmente é inviável. O `pytz` é atualizado de acordo com as versões do [TZDB da IANA](https://www.iana.org/time-zones) (o banco de informações de fusos-horários que várias linguagens e sistemas usam) e basta você usar o timezone correto (como `America/Sao_Paulo`, `Europe/London`, etc), que o `pytz` se encarrega de verificar qual a data e hora correspondentes.
+Usar um timezone é importante para que o código não fique dependente da configuração de timezone do ambiente no qual o código roda - a menos que este seja o comportamento desejado, claro. Mas se quiser que o timestamp corresponda a uma data e hora em um timezone específico, é melhor usar o `pytz` (ou `zoneinfo`, se estiver usando Python >= 3.9) As informações de timezones mudam o tempo todo (há épocas em que há horário de verão e o offset muda, [entre outros detalhes explicados neste link](https://pt.stackoverflow.com/a/349822/112052)), e tentar manter isso manualmente é inviável. O `pytz` é atualizado de acordo com as versões do [TZDB da IANA](https://www.iana.org/time-zones) (o banco de informações de fusos-horários que várias linguagens e sistemas usam) e basta você usar o timezone correto (como `America/Sao_Paulo`, `Europe/London`, etc), que o `pytz` se encarrega de verificar qual a data e hora correspondentes. Já o módulo `zoneinfo` puxa essas informações do sistema operacional, e caso estas não estejam disponíveis, ele pega do [pacote `tzdata`](https://tzdata.readthedocs.io/en/latest/). Na [documentação](https://docs.python.org/3/library/zoneinfo.html#data-sources) há mais detalhes sobre isso.
 
 E caso você precise somente do timestamp atual (o valor numérico e nada mais), pode usar o [método `time`](https://docs.python.org/3/library/time.html#time.time):
 
@@ -261,6 +280,9 @@ echo $d->getTimestamp(); // 1556285400
 // ou
 $d = new DateTime('2019-04-26T10:30', new DateTimeZone('America/Sao_Paulo'));
 echo $d->getTimestamp(); // 1556285400
+
+// ou ainda
+echo strtotime('2019-04-26T10:30 America/Sao_Paulo'); // 1556285400
 ```
 
 Atenção para chamar `setTimezone` antes de `setDate` e `setTime`. Se você mudar a data e hora primeiro, as alterações serão feitas levando em conta o timezone *default*. Depois, ao mudar o timezone, a data e hora serão ajustadas de acordo com o novo timezone, que não necessariamente serão os mesmos que você setou.
