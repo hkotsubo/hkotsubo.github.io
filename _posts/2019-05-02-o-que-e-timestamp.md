@@ -8,7 +8,7 @@ show_desc: true
 comments: true
 ---
 
-Provavelmente você já teve que lidar com datas e esbarrou em valores como 1556322834 ou 1556322834401. Talvez tenham te falado que guardar esses valores é melhor que guardar a data, e você meio que acreditou, afinal, "o código funciona". Mas o que são esses números?
+Provavelmente você já teve que lidar com datas e esbarrou em valores como `1556322834` ou `1556322834401`. Talvez tenham te falado que guardar esses valores é melhor que guardar a data, e você meio que acreditou, afinal, "o código funciona". Mas o que são esses números?
 
 Esses números [possuem vários nomes](https://codeofmatt.com/please-dont-call-it-epoch-time/): *Unix timestamps*, *Unix Time*, ou simplesmente *timestamps* (que é o nome que usaremos a partir de agora). Um timestamp basicamente representa um instante único, um ponto específico na linha do tempo, e seu valor corresponde a uma determinada quantidade de tempo decorrida a partir de um instante inicial.
 
@@ -16,13 +16,13 @@ Esse instante inicial (o "instante zero") é chamado de [*Unix Epoch*](https://e
 
   [^utc]: Lembrando que "meia-noite em UTC" não significa "meia-noite" em todos os lugares. Cada fuso-horário do mundo possui um horário diferente com relação a UTC (o Horário de Brasília, por exemplo, é 3 horas a menos em relação a UTC).
 
-O timestamp 1556322834, por exemplo, representa um instante ocorrido 1556322834 segundos depois do *Unix Epoch*, que corresponde a `2019-04-26T23:53:54Z` (26 de abril de 2019, às 23:53:54 **em UTC**).
+O timestamp `1556322834`, por exemplo, representa um instante ocorrido 1.556.322.834 segundos depois do *Unix Epoch*, que corresponde a `2019-04-26T23:53:54Z` (26 de abril de 2019, às 23:53:54 **em UTC**).
 
-Um detalhe importante é que o timestamp representa um único instante, **que é o mesmo no mundo todo**. Muitas linguagens e APIs possuem funções para retornar "a data atual", mas retornam o valor do timestamp. E qualquer computador do mundo que rodasse uma dessas funções, naquele exato instante, obteria o mesmo valor (1556322834)[^secs].
+Um detalhe importante é que o timestamp representa um único instante, **que é o mesmo no mundo todo**. Muitas linguagens e APIs possuem funções para retornar "a data atual", mas retornam o valor do timestamp. E qualquer computador do mundo que rodasse uma dessas funções, naquele exato instante, obteria o mesmo valor (`1556322834`)[^secs].
 
   [^secs]: Algumas linguagens e APIs retornam o valor em segundos, enquanto outras retornam o valor em milissegundos (ou em microssegundos, ou até mesmo nanossegundos - sempre leia a documentação para saber qual a precisão máxima suportada). Mas a ideia geral é a mesma: quaisquer computadores do mundo - assumindo que estão configurados corretamente - rodando ao mesmo tempo, obtêm o mesmo valor do timestamp para a "data atual".
 
-O detalhe é que um mesmo valor de timestamp corresponde a uma data e hora diferente, dependendo do fuso-horário. O timestamp 1556322834, por exemplo, corresponde às seguintes datas e horários:
+O detalhe é que um mesmo valor de timestamp corresponde a uma data e hora diferente, dependendo do fuso-horário. O timestamp `1556322834`, por exemplo, corresponde às seguintes datas e horários:
 
 | Data e hora                  |  Fuso horário
 |------------------------------|----------------
@@ -30,7 +30,7 @@ O detalhe é que um mesmo valor de timestamp corresponde a uma data e hora difer
 | 26/04/2019, às 16:53:54      | Los Angeles
 | **27**/04/2019, às 08:53:54  | Tóquio
 
-Este é um conceito importantíssimo: o timestamp 1556322834 corresponde a **todas** as datas e horas acima. O instante é o mesmo (1556322834 segundos depois do *Unix Epoch*), o que muda é apenas a data e hora local, de acordo com o fuso-horário que você usa como referência.
+Este é um conceito importantíssimo: o timestamp `1556322834` corresponde a **todas** as datas e horas acima. O instante é o mesmo (1.556.322.834 segundos depois do *Unix Epoch*), o que muda é apenas a data e hora local, de acordo com o fuso-horário que você usa como referência.
 
 Por isso, só faz sentido converter um timestamp para uma data e hora (e vice-versa) se você estiver usando um fuso-horário específico. Muitas linguagens possuem funções que fazem essas conversões sem pedir por um fuso-horário, mas no fundo elas usam algum predefinido (geralmente o *default* que está configurado no ambiente em que o código roda). Algumas permitem que você mude ou configure o fuso-horário, mas nem sempre isso é possível.
 
@@ -126,7 +126,7 @@ No exemplo acima foram setados o horário e o timezone, mas a API não nos obrig
 
 ### .NET
 
-Em .NET existe o *struct* [`DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8#main), mas ele não usa *Unix timestamps*. Na verdade ele usa um *epoch* diferente, ou seja, o instante zero não é o *Unix Epoch*, e sim `0001-01-01T00:00Z` (1 de janeiro do **ano 1**, à meia-noite em UTC). E a unidade de medida usada é chamada de *tick*, que equivale a 100 nanossegundos (ou 0,0000001 segundos). Por isso há [vários construtores](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.-ctor?view=netframework-4.8) que recebem a quantidade de ticks e criam o `DateTime` correspondente.
+Em .NET existe o [*struct* `DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8#main), mas ele não usa *Unix timestamps*. Na verdade ele usa um *epoch* diferente, ou seja, o instante zero não é o *Unix Epoch*, e sim `0001-01-01T00:00Z` (1 de janeiro do **ano 1**, à meia-noite em UTC). E a unidade de medida usada é chamada de *tick*, que equivale a 100 nanossegundos (ou 0,0000001 segundos). Por isso há [vários construtores](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.-ctor?view=netframework-4.8) que recebem a quantidade de ticks e criam o `DateTime` correspondente.
 
 Para trabalhar com *Unix timestamps*, existe o *struct* [`DateTimeOffset`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset?view=netframework-4.8), que possui o método [`FromUnixTimeSeconds`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset.fromunixtimeseconds?redirectedfrom=MSDN&view=netframework-4.8#System_DateTimeOffset_FromUnixTimeSeconds_System_Int64_), que recebe o timestamp em segundos. Também existe o método [`FromUnixTimeMilliseconds`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset.fromunixtimemilliseconds?view=netframework-4.8) que recebe o timestamp em milissegundos:
 
@@ -143,7 +143,7 @@ DateTimeOffset d = new DateTimeOffset(dt);
 Console.WriteLine(d.ToUnixTimeSeconds()); // 1556285400
 ```
 
-No exemplo acima o retorno foi 1556285400 (que corresponde a 26/04/2019 às 10:30 no Horário de Brasília), pois o valor de `dt.Kind` acima é `Unspecified`, e neste caso o `DateTimeOffset` usa o timezone configurado no sistema (e o meu sistema está usando o Horário de Brasília). Para mais detalhes e opções, [veja este link](https://stackoverflow.com/q/249760).
+No exemplo acima o retorno foi `1556285400` (que corresponde a 26/04/2019 às 10:30 no Horário de Brasília), pois o valor de `dt.Kind` acima é `Unspecified`, e neste caso o `DateTimeOffset` usa o timezone configurado no sistema (e o meu sistema está usando o Horário de Brasília). Para mais detalhes e opções, [veja este link](https://stackoverflow.com/q/249760).
 
 E para obter o timestamp atual (somente o valor numérico e nada mais):
 
@@ -351,6 +351,8 @@ moment.tz("2019-04-26 10:30", "America/Sao_Paulo").valueOf()    // 1556285400000
 O método [`valueOf()`](https://momentjs.com/docs/#/displaying/unix-timestamp-milliseconds/) retorna o valor do timestamp em milissegundos. Os valores são diferentes porque as 10:30 do dia 26/04/2019 ocorreram em instantes diferentes em Los Angeles e São Paulo.
 
 Se quiser este mesmo valor em segundos, use o método [`unix()`](https://momentjs.com/docs/#/displaying/unix-timestamp/). E se quiser o valor numérico do timestamp atual, basta fazer `new Date().getTime()`.
+
+Para entender melhor o `Date` do JavaScript, fiz [este post mais detalhado]({{ site.baseurl }}{% post_url 2021-11-29-entendendo-o-date-do-javascript %}){: class="new-window" }.
 
 ---
 Enfim, todas as linguagens possuem algum suporte a datas, horas, timezones e timestamps (algumas melhores, outras piores). Sempre que for converter uma data e hora de/para um timestamp, é importante saber qual o timezone que está sendo utilizado. Como você pôde perceber, esta informação nem sempre está clara: muitas vezes é usado um timezone *default* (que nem sempre dá para saber facilmente qual é) e algum valor sempre é retornado - e como não dá erro, muitos assumem que "funcionou", sem sequer conferir se os **valores** estão corretos.

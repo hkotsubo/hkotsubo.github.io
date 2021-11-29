@@ -31,6 +31,8 @@ O segundo ponto é importante, pois para converter o timestamp para uma data, vo
 | **16**/04/2019, às 09:45:34.143  | Tóquio
 | **16**/04/2019, às 00:45:34.143  | UTC
 
+
+
 Todas as datas e horas acima correspondem ao mesmo timestamp (`1555375534143`), portanto, ao fazer a conversão é necessário saber qual o timezone sendo usado.
 
 O segundo valor (`-0300`) é um *offset*, ou seja, a diferença em relação a [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). No caso, `-0300` significa 3 horas a menos que o UTC, que é o offset usado em São Paulo naquele instante.
