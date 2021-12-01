@@ -85,7 +85,7 @@ Repare que o **formato** é o mesmo ("dd/mm/aaaa hh:mm:ss" - pois é o que está
 
 Infelizmente o JavaScript não nos dá muita alternativa. O máximo que dá para fazer é mudar o locale passado para `toLocaleString`, mas ainda sim você está limitado aos formatos que já estão configurados para cada um (sem contar que o sistema pode não ter determinado(s) locale(s) instalado(s) - por exemplo, o [Node, antes da versão 13 não vinha com os locales instalados](https://github.com/nodejs/node/issues/8500#issuecomment-556520467)). Há ainda a - um pouco mais rara, mas ainda sim possível - possibilidade do formato associado a um locale mudar. Por fim, há também o fato de [o formato retornado por `toLocaleString` não ser garantidamente o mesmo em todos os browsers](https://stackoverflow.com/q/25574963).
 
-Sendo assim, se quiser um formato customizado, o jeito é usar os *getters* e construi-lo manualmente. Mas com isso você está limitado a usar o timezone do browser ou UTC, já que não há *getters* que obtém os valores de acordo com um timezone específico. Para formatar a data em um formato customizado (que não dependa do locale) **e** com os valores de data e hora referentes a um timezone que não seja o do browser e nem UTC, o jeito é recorrer a bibliotecas externas. Algumas opções são:
+Sendo assim, se quiser um formato customizado, o jeito é usar os *getters* e construí-lo manualmente. Mas com isso você está limitado a usar o timezone do browser ou UTC, já que não há *getters* que obtém os valores de acordo com um timezone específico. Para formatar a data em um formato customizado (que não dependa do locale) **e** com os valores de data e hora referentes a um timezone que não seja o do browser e nem UTC, o jeito é recorrer a bibliotecas externas. Algumas opções são:
 
 - [Moment.js](https://momentjs.com/) (neste caso precisa também do [Moment Timezone](https://momentjs.com/timezone/))
 - [date-fns](https://date-fns.org/)
@@ -118,7 +118,7 @@ Sem contar que as regras dos timezones [mudam o tempo todo](https://www.timeandd
 
 Outros problemas similares ocorrem quando se quer criar uma data específica, ou quando você recebe uma string e quer convertê-la para data.
 
-Um exempo clássico (outro caso de "*criei uma data mas ela fica com um dia a menos*":
+Um exempo clássico (outro caso de "*criei uma data mas ela fica com um dia a menos*"):
 
 ```javascript
 // código rodando em um browser configurado com o Horário de Brasília
@@ -164,21 +164,21 @@ console.log(data.toLocaleString('pt-BR')); // 29/11/2021 00:00:00
 
 Resumindo:
 
-| Argumentos        | Sem horário         | Com horário         |
-|:------------------|:--------------------|:--------------------|
-| string            | UTC                 | timezone do browser |
-| valores numéricos | timezone do browser | timezone do browser |
+| Argumentos passados ao construtor | Sem horário         | Com horário         |
+|:----------------------------------|:--------------------|:--------------------|
+| string                            | UTC                 | timezone do browser |
+| valores numéricos                 | timezone do browser | timezone do browser |
 
 
-### Não use qualquer formato
+### Não use qualquer formato de string
 
-O **único** formato [garantido pela especificação da linguagem](https://262.ecma-international.org/5.1/#sec-15.9.1.15) que funciona em qualquer ambiente é o definido pela [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). No caso, é o que foi usado nos exemplos acima: "AAAA-MM-DD" ou "AAAA-MM-DDTHH:MM" (sim, tem uma letra "T" maiúscula entre a data e a hora). **Qualquer outro formato é dependente de implementação e não é garantido que funcione em todos os ambientes**.
+Ao se passar uma string para o construtor de `Date`, o **único** formato [garantido pela especificação da linguagem](https://262.ecma-international.org/5.1/#sec-15.9.1.15) que funciona em qualquer ambiente é o definido pela [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). No caso, é o que foi usado nos exemplos acima: "AAAA-MM-DD" ou "AAAA-MM-DDTHH:MM" (sim, tem uma letra "T" maiúscula entre a data e a hora). **Qualquer outro formato é dependente de implementação e não é garantido que funcione em todos os ambientes**.
 
 > "_Ah, mas eu sempre usei o formato XYZ e funcionou_"
 
 [Parabéns!](https://blog.codinghorror.com/the-works-on-my-machine-certification-program/) 🙂
 
-Tudo bem que muitos formatos "funcionam" em vários browsers diferentes, mas se não quer depender da sorte, eu sugiro que qualquer string que você receber seja devidamente quebrada em valores numéricos ou convertida para ISO 8601.
+Tudo bem que muitos formatos "funcionam" em vários browsers diferentes, mas se não quer depender da sorte, eu sugiro que qualquer string que você receber seja devidamente quebrada em valores numéricos ou convertida para ISO 8601, e só depois passe esses valores para o construtor.
 
 Por exemplo, testando o formato "dd/mm/aaaa" no Node e Chrome:
 
@@ -198,7 +198,16 @@ let data = new Date(ano, mes - 1, dia); // lembrar de subtrair 1 do mês
 console.log(data.toLocaleString('pt-BR')); // 29/11/2021 00:00:00
 ```
 
-Outra opção é usar alguma biblioteca externa, como já sugerido acima.
+Outra opção é usar alguma biblioteca externa, como já sugerido acima, que possuem opções de *parsing* mais flexíveis, na qual é possível indicar o formato. Por exemplo, no Moment.js seria algo como:
+
+```javascript
+// 29 de novembro de 2021, à meia-noite no timezone do browser
+let data = moment('29/11/2021', 'DD/MM/YYYY');
+// se quiser converter para Date
+let jsDate = date.toDate();
+```
+
+E todas as libs já mencionadas possuem formas parecidas de obter a data a partir de uma string, bastando especificar o formato correto.
 
 ---
 
