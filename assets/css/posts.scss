@@ -56,10 +56,28 @@ h3.subtitulo {
 	font-size: 23px;
 }
 
-pre.highlight code {
-    font-size: 12px;
+pre, code, pre.highlight, pre.highlight code {
+    background-color: #f6f6f6 !important;
+}
+
+pre, pre.highlight, pre.highlight code, code.language-none {
+    font-size: 12px !important;
 }
 
 h1 > code, h2 > code, h3 > code {
     font-size: 0.9em;
+}
+
+kbd {
+    background-color: #e3e6e8;
+    border: 1px solid rgb(159, 166, 173);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.15) 0px 1px 1px 0px, rgb(255, 255, 255) 0px 1px 0px 0px, inset 0 1px 1px hsla(210,8%,5%,0.15), inset 0 1px 0 0 hsl(0,0%,100%);
+    color: #232629;
+    display: inline-block;
+    font-size: 11px;
+    margin: 0 0.1em;
+    padding: 0.1em 0.6em;
+    text-shadow: 0 1px 0 rgba(12, 13, 14, 0.15);
+    overflow-wrap: break-word;
 }

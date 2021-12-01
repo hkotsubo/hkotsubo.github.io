@@ -12,8 +12,8 @@ JSON significa "JavaScript Object Notation" (Notação de Objetos JavaScript). A
 
 Dentro de um JSON podemos ter vários tipos de dados diferentes. Para começar, temos os tipos "básicos":
 
-- strings: quaisquer caracteres entre aspas duplas. Ex: `"sou uma string"`. Também são aceitos aqueles caracteres de controle comuns em outras linguagens, como `\n` para representar a quebra de linha, `\t` para <kbd>TAB</kbd>, etc.
-- números: pode ser um valor inteiro positivo (`42`), negativo (`-10`), com casas decimais (`12.34` - repare que o ponto - e não a vírgula - é o separador das casas decimais) ou em notação científica (`2.53962e15`)
+- strings: quaisquer caracteres entre aspas duplas. Ex: `"sou uma string"`. Também são aceitas aquelas sequências de escape comuns em várias linguagens, como `\n` para representar a quebra de linha, `\t` para <kbd>TAB</kbd>, etc.
+- números: pode ser um valor inteiro positivo (`42`), negativo (`-10`), com casas decimais (`12.34` - e repare que o ponto - e não a vírgula - é o separador das casas decimais) ou em notação científica (`2.53962e15`)
 - valores *booleanos* (`true` e `false`) e o valor nulo (`null`)
 
 Além destes, podemos ter também **arrays** e **objetos**.
