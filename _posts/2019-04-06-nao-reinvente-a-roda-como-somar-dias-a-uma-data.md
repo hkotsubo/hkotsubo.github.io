@@ -92,11 +92,11 @@ De forma similar ao `java.time`, o método `AddDays` retorna outro `DateTime` co
 Em Python você pode usar o [módulo `datetime`](https://docs.python.org/3/library/datetime.html). Se quiser trabalhar com somente a data (apenas o dia, mês e ano), pode usar um [`date`](https://docs.python.org/3/library/datetime.html#date-objects), e para somar 1 dia, basta usar um [`timedelta`](https://docs.python.org/3/library/datetime.html#timedelta-objects):
 
 ```python
-from datetime import date
+from datetime import date, timedelta
 # 3 de abril de 2019
 d = date(2019, 4, 3)
 # somar 1 dia = 4 de abril de 2019
-d = d + timedelta(days = 1)
+d += timedelta(days = 1)
 ```
 
 Se quiser, também pode usar um [`datetime`](https://docs.python.org/3/library/datetime.html#datetime-objects), a diferença é que este também possui o horário. E se você criá-lo com `d = datetime(2019, 4, 3)`, o horário é automaticamente setado para meia-noite.
