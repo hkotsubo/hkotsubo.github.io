@@ -2,7 +2,7 @@
 layout: custompost
 title: "Entendendo o Date do JavaScript (ou: criei um Date mas ao printar/formatar ele fica com dia/hora errado)"
 date: 2021-11-29 08:00:00 -0300
-categories: data timestamp formatacao
+categories: data timestamp formatacao javascript
 description: Quer formatar sua data para DD/MM/YYYY, YYYY-MM-DD, ou qualquer outro formato? Não deu certo porque o resultado ficou com "um dia a menos", "três horas a mais", ou com "fuso horário diferente"? Veja aqui todos os detalhes e "pegadinhas", e possíveis soluções - e o mais importante, entenda porque isso acontece.
 show_desc: true
 comments: true
