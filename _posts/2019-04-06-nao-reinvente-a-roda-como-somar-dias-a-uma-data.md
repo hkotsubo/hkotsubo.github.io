@@ -1,6 +1,6 @@
 ---
 layout: custompost
-title: "Não reivente a roda: como somar dias a uma data"
+title: "Não reinvente a roda: como somar dias a uma data"
 date: 2019-04-06 18:20:00 -0300
 categories: data aritmética
 description: Somar números é algo que a gente aprende desde cedo na escola e é uma das operações matemáticas mais fáceis que existem. E quando precisamos fazer um programa que soma dias a uma data, achamos que será igualmente fácil. Mas a aritmética de datas esconde várias armadilhas...
