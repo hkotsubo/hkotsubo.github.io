@@ -1,6 +1,6 @@
 ---
 layout: custompost
-title: "Lendo dados do teclado - parte 1 (Java): usando a classe java.util.Scanner"
+title: "Lendo dados do teclado em Java: usando a classe java.util.Scanner"
 date: 2022-06-15 08:00:00 -0300
 categories: java scanner IO
 description: Problemas ao usar o Scanner? Você pede para ler os dados mas ele não lê corretamente? Entenda melhor como ela funciona e como evitar esses problemas.
