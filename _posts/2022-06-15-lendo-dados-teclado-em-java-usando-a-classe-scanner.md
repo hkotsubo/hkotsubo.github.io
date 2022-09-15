@@ -6,7 +6,6 @@ categories: java scanner IO
 description: Problemas ao usar o Scanner? Você pede para ler os dados mas ele não lê corretamente? Entenda melhor como ela funciona e como evitar esses problemas.
 show_desc: true
 comments: true
-alias: [/blog/2022-06-15/lendo-dados-teclado-parte-1-java-usando-a-classe-scanner]
 ---
 
 Um problema muito frequente que vejo acontecer ao se usar a classe `java.util.Scanner` é quando tem algo assim:
