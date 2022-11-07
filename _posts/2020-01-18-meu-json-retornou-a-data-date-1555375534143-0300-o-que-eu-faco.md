@@ -252,5 +252,12 @@ let data = moment(parseInt(match[0])).utcOffset(offset);
 console.log(data.format()); // 2019-04-15T21:45:34-03:00
 ```
 
+Outra opção é usar [`parseZone`](https://momentjs.com//docs/#/parsing/parse-zone/), que suporta este formato e consegue preservar o *offset*:
+
+```javascript
+console.log(moment.parseZone("/Date(1555375534143-0300)/").format()); // 2019-04-15T21:45:34-03:00
+```
+
+
 ---
 Resumindo, o formato `/Date(1555375534143-0300)/` pode assustar à primeira vista, mas uma vez que entendemos a sua - falta de - lógica, não é difícil extrair dele os dados que precisamos.
