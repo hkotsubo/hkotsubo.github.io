@@ -212,7 +212,7 @@ Similar aos demais, basta usar uma expressão regular para obter o timestamp e o
 
 ```php
 if (preg_match('/Date\((\d+)([-+]\d{4})?\)/', '/Date(1555375534143-0300)/', $matches)) {
-    $timestamp = $matches[1] / 1000;
+    $timestamp = number_format($matches[1] / 1000, 3, '.', '');
     // $matches pode ter até 3 elementos: o match total e os dois grupos de captura
     if (count($matches) === 3) {
         $offset = $matches[2];
