@@ -175,7 +175,7 @@ fisher yates x 7,341,581 ops/sec ±3.01% (79 runs sampled)
 Fastest is fisher yates
 ```
 
-Os números acima são as operações por segundo (quanto mais, melhor - e note que estão em notação americana, com vírgulas separando os milhares). Ou seja, o loop conseguiu mais de 5 milhões de operações por segundo, enquanto o Fisher-Yates conseguiu mais de 7 milhões (cerca de 1,26 vezes mais operações).
+Os números acima são as operações por segundo (quanto mais, melhor - e note que estão em notação americana, com vírgulas separando os milhares). Ou seja, o loop conseguiu mais de 5 milhões de operações por segundo, enquanto o Fisher-Yates conseguiu mais de 7 milhões (cerca de 1,26 vezes o número de operações do loop).
 
 Mudando para `quantidade = 40`, a diferença se torna ainda mais gritante:
 
@@ -185,7 +185,7 @@ fisher yates x 1,470,527 ops/sec ±1.79% (85 runs sampled)
 Fastest is fisher yates
 ```
 
-Agora o Fisher-Yates conseguiu cerca de 5,24 vezes mais operações por segundo. Isso porque, como já vimos, para quantidade igual a 40 o loop começa a ter muitas repetições, tendo que gerar outro número (e para cada número gerado, precisa percorrer o array novamente para verificar se ele já existe).
+Agora o Fisher-Yates conseguiu cerca de 5,24 vezes o número de operações do loop. Isso porque, como já vimos, para quantidade igual a 40 o loop começa a ter muitas repetições, tendo que gerar outro número (e para cada número gerado, precisa percorrer o array novamente para verificar se ele já existe).
 
 ---
 
