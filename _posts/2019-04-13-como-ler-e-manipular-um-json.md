@@ -172,7 +172,7 @@ Agora sim, vamos ao código. Para todos os exemplos abaixo, usarei este JSON:
 
 Se quiser, pode usar os links abaixo para ir direto para a sua linguagem de sua preferência:
 
-{% include languages.html languages="java,net,python,php,javascript,regex" %}
+{% include languages.html languages="java,csharp,python,php,javascript,regex" %}
 
 <sup>Mas já adianto que o exemplo em Java é um _pouquinho_ mais completo que os demais, por ser a linguagem com a qual tenho mais familiaridade.</sup>
 
@@ -330,9 +330,9 @@ Além disso, a classe `Gson` possui métodos que trabalham com `java.io.Reader` 
 
 Se o JSON for inválido, o método `fromJSON` lança um `com.google.gson.JsonSyntaxException`.
 
-### .NET
+### C#
 
-Em .NET existem várias APIs diferentes para manipular JSON, como você pode ver [neste comparativo](http://sagistech.blogspot.com/2010/03/parsing-twitter-json-comparing-c.html). Pelo que vi, são todas bem parecidas em termos de funcionamento básico. Segue abaixo um exemplo com o [Json.NET](https://www.newtonsoft.com/json):
+Em C# existem várias APIs diferentes para manipular JSON, como você pode ver [neste comparativo](http://sagistech.blogspot.com/2010/03/parsing-twitter-json-comparing-c.html). Pelo que vi, são todas bem parecidas em termos de funcionamento básico. Segue abaixo um exemplo com o [Json.NET](https://www.newtonsoft.com/json):
 
 ```c#
 using Newtonsoft.Json;

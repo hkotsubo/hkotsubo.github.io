@@ -36,7 +36,7 @@ Por isso, só faz sentido converter um timestamp para uma data e hora (e vice-ve
 
 A seguir seguem alguns exemplos básicos de manipulação do timestamp em algumas linguagens. Se quiser, pode usar os links abaixo para ir direto para a linguagem de sua preferência:
 
-{% include languages.html languages="java,net,python,php,javascript" %}
+{% include languages.html languages="java,csharp,python,php,javascript" %}
 
 ### Java
 
@@ -124,9 +124,9 @@ long timestamp = cal.getTimeInMillis(); // 1556285400000
 
 No exemplo acima foram setados o horário e o timezone, mas a API não nos obriga a fazer isso. `Calendar.getInstance()` cria uma instância contendo a data e hora atual no timezone *default* da JVM, e se você só mudar o dia, mês e ano, os outros campos permanecem os mesmos, e isso faz com que o valor do timestamp retornado seja diferente.
 
-### .NET
+### C#
 
-Em .NET existe o [*struct* `DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8#main), mas ele não usa *Unix timestamps*. Na verdade ele usa um *epoch* diferente, ou seja, o instante zero não é o *Unix Epoch*, e sim `0001-01-01T00:00Z` (1 de janeiro do **ano 1**, à meia-noite em UTC). E a unidade de medida usada é chamada de *tick*, que equivale a 100 nanossegundos (ou 0,0000001 segundos). Por isso há [vários construtores](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.-ctor?view=netframework-4.8) que recebem a quantidade de ticks e criam o `DateTime` correspondente.
+Em C# existe o [*struct* `DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8#main), mas ele não usa *Unix timestamps*. Na verdade ele usa um *epoch* diferente, ou seja, o instante zero não é o *Unix Epoch*, e sim `0001-01-01T00:00Z` (1 de janeiro do **ano 1**, à meia-noite em UTC). E a unidade de medida usada é chamada de *tick*, que equivale a 100 nanossegundos (ou 0,0000001 segundos). Por isso há [vários construtores](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.-ctor?view=netframework-4.8) que recebem a quantidade de ticks e criam o `DateTime` correspondente.
 
 Para trabalhar com *Unix timestamps*, existe o *struct* [`DateTimeOffset`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset?view=netframework-4.8), que possui o método [`FromUnixTimeSeconds`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset.fromunixtimeseconds?redirectedfrom=MSDN&view=netframework-4.8#System_DateTimeOffset_FromUnixTimeSeconds_System_Int64_), que recebe o timestamp em segundos. Também existe o método [`FromUnixTimeMilliseconds`](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset.fromunixtimemilliseconds?view=netframework-4.8) que recebe o timestamp em milissegundos:
 

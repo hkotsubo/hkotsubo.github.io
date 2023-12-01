@@ -35,7 +35,7 @@ Enfim, o que parecia simples ("é só somar 1 no dia"), se torna mais complicado
 
 Muitas linguagens - se não todas - possuem uma ou mais APIs de data que já cuidam de todos esses detalhes para você. Se a linguagem não possui mecanismos nativos - ou se estes não são muito bons - geralmente já existe uma biblioteca externa que faz isso. Pesquise e veja se a sua linguagem favorita possui tal recurso. Abaixo tem exemplos em algumas das linguagens que conheço (com uma ênfase maior em Java, pois é a API que tenho mais familiaridade). Se quiser, pode usar os links abaixo para ir direto para a linguagem de sua preferência:
 
-{% include languages.html languages="java,net,python,php,javascript" %}
+{% include languages.html languages="java,csharp,python,php,javascript" %}
 
 ### Java
 
@@ -76,9 +76,9 @@ cal.set(2019, 4, 3);
 
 Como os meses são indexados em zero, então abril é o mês 3, e não 4. O código acima seta a data para 3 de **maio** de 2019. Por isso, sempre que posso - e lembro - eu uso as constantes, como `Calendar.APRIL`, que pelo menos diminui os erros (*e a raiva que eles causariam*). Compare com o código anterior, e veja que `LocalDate` não tem esse problema: os meses têm os valores certos e é um detalhe a menos para se preocupar.
 
-### .NET
+### C#
 
-Em .NET você pode usar um [`DateTime`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime?view=netframework-4.7.2), que possui o método [`AddDays`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.adddays?view=netframework-4.7.2).
+Em C# você pode usar um [`DateTime`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime?view=netframework-4.7.2), que possui o método [`AddDays`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.adddays?view=netframework-4.7.2).
 
 ```c#
 DateTime date = new DateTime(2019, 4, 3); // ou DateTime.Now para a data atual

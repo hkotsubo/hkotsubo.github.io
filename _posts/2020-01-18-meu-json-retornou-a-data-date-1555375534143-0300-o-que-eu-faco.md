@@ -43,7 +43,7 @@ Você pode pegar somente o timestamp e ignorar o _offset_, e em seguida converte
 
 Para extrair os valores, você pode usar tanto `substring` quanto expressões regulares (_regex_), e dependendo da linguagem, é possível fazer o *parsing* diretamente, usando uma API de datas. Abaixo tem exemplos em algumas das linguagens que conheço (com uma ênfase maior em Java, pois é a API que tenho mais familiaridade). Se quiser, pode usar os links abaixo para ir direto para a linguagem de sua preferência:
 
-{% include languages.html languages="java,net,python,php,javascript" %}
+{% include languages.html languages="java,csharp,python,php,javascript" %}
 
 ### Java
 
@@ -144,9 +144,9 @@ No exemplo acima, a saída é `16/04/2019 00:45:34 Z` (este "Z" no final [indica
 
 Também daria para obter o timestamp e _offset_ usando `substring`, e fazendo alguns `if`'s para saber se o _offset_ existe, mas eu acho que a solução com regex é mais direta nesse caso.
 
-### .NET
+### C#
 
-Em .NET você pode usar o [Json.NET](https://www.newtonsoft.com/json), que possui a classe [`JsonConvert`](https://www.newtonsoft.com/json/help/html/SerializingJSON.htm#JsonConvert). Com isso podemos obter um [`DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8):
+Em C# você pode usar o [Json.NET](https://www.newtonsoft.com/json), que possui a classe [`JsonConvert`](https://www.newtonsoft.com/json/help/html/SerializingJSON.htm#JsonConvert). Com isso podemos obter um [`DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8):
 
 ```c#
 string sa = @"""" + "/Date(1555375534143-0300)/" + @"""";

@@ -50,7 +50,7 @@ Vamos ver então como seria uma solução para este problema. Lembrando que **os
 
 Abaixo tem soluções em algumas linguagens (você pode usar os links abaixo para ir direto para uma delas):
 
-{% include languages.html languages="java,net,python,php,javascript" %}
+{% include languages.html languages="java,csharp,python,php,javascript" %}
 
 ### Java
 
@@ -108,9 +108,9 @@ Lembrando que neste caso específico eu só tenho as horas e minutos, por isso t
 
 Para Java <= 7, não há uma classe específica para durações, e o único jeito é fazer o cálculo manualmente (similar o que foi feito abaixo com [PHP](#php), por exemplo).
 
-### .NET
+### C#
 
-Em .NET, o horário pode ser representado por um [`DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.7.2), e uma duração, por um [`TimeSpan`](https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=net-5.0). A ideia geral é bem similar ao código anterior:
+Em C#, o horário pode ser representado por um [`DateTime`](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.7.2), e uma duração, por um [`TimeSpan`](https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=net-5.0). A ideia geral é bem similar ao código anterior:
 
 ```c#
 TimeSpan total = TimeSpan.Zero;

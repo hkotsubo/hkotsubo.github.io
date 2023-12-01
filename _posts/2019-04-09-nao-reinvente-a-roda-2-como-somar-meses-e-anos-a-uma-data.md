@@ -54,7 +54,7 @@ Pessoalmente, eu prefiro o "ajuste semântico", pois me parece mais "óbvio" e "
 
 Apesar de muitas linguagens seguirem por este caminho, nem todas fazem essas operações desta maneira. Vamos ver alguns exemplos abaixo. Se quiser, pode usar os links abaixo para pular direto para a linguagem de sua preferência:
 
-{% include languages.html languages="java,net,python,php,javascript" %}
+{% include languages.html languages="java,csharp,python,php,javascript" %}
 
 ### Java
 
@@ -91,9 +91,9 @@ Date date = cal.getTime();
 
 Vale lembrar que `Calendar` usa os meses indexados em zero (janeiro é zero, fevereiro é 1, etc). Usar as constantes (como `Calendar.JANUARY`) ajuda a diminuir esta confusão (mas lembre-se que o [valor dessa constante continua sendo zero)](https://docs.oracle.com/javase/8/docs/api/constant-values.html#java.util.Calendar.JANUARY).
 
-### .NET
+### C#
 
-Em .NET você pode usar um [`DateTime`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime?view=netframework-4.7.2), que possui os métodos [`AddMonths`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.addmonths?view=netframework-4.7.2) e [`AddYears`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.addyears?view=netframework-4.7.2).
+Em C# você pode usar um [`DateTime`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime?view=netframework-4.7.2), que possui os métodos [`AddMonths`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.addmonths?view=netframework-4.7.2) e [`AddYears`](https://docs.microsoft.com/pt-br/dotnet/api/system.datetime.addyears?view=netframework-4.7.2).
 
 ```c#
 // 31 de janeiro de 2016
