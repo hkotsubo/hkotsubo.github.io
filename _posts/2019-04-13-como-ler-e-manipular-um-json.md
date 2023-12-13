@@ -26,7 +26,7 @@ Um array é uma lista ordenada de valores, dentro de colchetes (`[` e `]`) e sep
 [ 1, "segundo elemento", 3.4 ]
 ```
 
-Este array tem 3 elementos: o primeiro é o número `1`, o segundo é a string `"segundo elemento"` e o terceiro é o número `3.4`. Veja que ele começa com `[` e termina com `]`, e os elementos são separados por vírgulas, .
+Este array tem 3 elementos: o primeiro é o número `1`, o segundo é a string `"segundo elemento"` e o terceiro é o número `3.4`. Veja que ele começa com `[` e termina com `]`, e os elementos são separados por vírgulas.
 
 Um detalhe importante é que um array não precisa ter necessariamente todos os elementos do mesmo tipo[^array].
 
