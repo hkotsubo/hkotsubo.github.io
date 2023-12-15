@@ -390,6 +390,8 @@ emails = [
 
 Se o JSON for inválido, é lançado um `Newtonsoft.Json.JsonReaderException`. Veja mais exemplos com outras bibliotecas [aqui](https://pt.stackoverflow.com/q/706/112052).
 
+E a partir do .NET Core 3.0 é possível usar uma nova API, disponível no namespace [`System.Text.Json`](https://learn.microsoft.com/en-us/dotnet/api/system.text.json?view=net-8.0&WT.mc_id=DOP-MVP-5002397).
+
 ### Python
 
 Em Python, você pode usar o [módulo `json`](https://docs.python.org/3.6/library/json.html). A conversão de tipos do JSON de/para o Python é feita com base [nesta tabela](https://docs.python.org/3.6/library/json.html#json-to-py-table):
